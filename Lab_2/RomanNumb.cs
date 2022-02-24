@@ -140,7 +140,7 @@
         //Реализация интерфейса IComparable
         public int CompareTo(object? obj)
         {
-            if (obj is RomanNumber number) return CompareTo(number);
+            if (obj is RomanNumber number) return this.number - number.Number;
             else throw new ArgumentException("Некорректное значение параметра");
         }
     }
