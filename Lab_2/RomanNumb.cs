@@ -140,8 +140,29 @@
         //Реализация интерфейса IComparable
         public int CompareTo(object? obj)
         {
-            if (obj is RomanNumber number) return this.number - number.Number;
+            if (obj is RomanNumber number) return this.number.CompareTo(number.Number);
             else throw new ArgumentException("Некорректное значение параметра");
+        }
+
+        public static bool operator >(RomanNumber operand1, RomanNumber operand2)
+        {
+            return operand1.CompareTo(operand2) > 0;
+        }
+
+     
+        public static bool operator <(RomanNumber operand1, RomanNumber operand2)
+        {
+            return operand1.CompareTo(operand2) < 0;
+        }
+
+        public static bool operator >=(RomanNumber operand1, RomanNumber operand2)
+        {
+            return operand1.CompareTo(operand2) >= 0;
+        }
+
+        public static bool operator <=(RomanNumber operand1, RomanNumber operand2)
+        {
+            return operand1.CompareTo(operand2) <= 0;
         }
     }
 
