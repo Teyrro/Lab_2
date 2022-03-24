@@ -5,8 +5,8 @@ class Program
     {
         try
         {
-            RomanNumber number = new RomanNumber(3);
-            RomanNumber number2 = new RomanNumber(2);
+            RomanNumber number = new RomanNumber(2);
+            RomanNumber number2 = new RomanNumber(3);
 
             Array myArr = Array.CreateInstance(typeof(RomanNumber), 10);
             int lower = myArr.GetLowerBound(0), upper = myArr.GetUpperBound(0);
