@@ -11,11 +11,11 @@
             get => number;
         }
 
+
         public RomanNumber(ushort n)
         {
-            if (n <= 0)
-                throw new RomanNumberException("Ошибка: значение n <= 0", n);
-
+            if (n <= 0 && number >= 3999)
+                throw new RomanNumberException("Ошибка: значение n <= 0 or n > 3999");
             number = n;
         }
 
@@ -24,7 +24,7 @@
         {
             if (n1 == null || n2 == null)
             {
-                throw new ArgumentNullException(nameof(n1));
+                throw new RomanNumberException("Значение не задано");
             }
 
             int tmp = (n1.number + n2.number);
@@ -41,7 +41,7 @@
         {
             if (n1 == null || n2 == null)
             {
-                throw new ArgumentNullException(nameof(n1));
+                throw new RomanNumberException("Значение не задано");
             }
 
             int tmp = (n1.number - n2.number);
@@ -58,7 +58,7 @@
         {
             if (n1 == null || n2 == null)
             {
-                throw new ArgumentNullException(nameof(n1));
+                throw new RomanNumberException("Значение не задано");
             }
 
             int tmp = (n1.number - n2.number);
@@ -75,7 +75,7 @@
         {
             if (n1 == null || n2 == null)
             {
-                throw new ArgumentNullException(nameof(n1));
+                throw new RomanNumberException("Значение не задано");
             }
 
             int tmp = (n1.number / n2.number);
@@ -90,7 +90,7 @@
         //Возвращает строковое представление римского числа
         public override string ToString()
         {
-            if (number >= 3999) throw new OverflowException("Ошибка: значение n > 3999");
+            if (number >= 3999) throw new RomanNumberException("Ошибка: значение n > 3999");
             string symb = "IVXLCDM";
             int value = number, degrees = -1;
             while (value != 0)
@@ -141,7 +141,8 @@
         public int CompareTo(object? obj)
         {
             if (obj is RomanNumber number) return this.number.CompareTo(number.Number);
-            else throw new ArgumentException("Некорректное значение параметра");
+            else throw new RomanNumberException("Некорректное значение параметра");
+            
         }
 
         public static bool operator >(RomanNumber operand1, RomanNumber operand2)
