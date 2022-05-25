@@ -5,8 +5,8 @@ class Program
     {
         try
         {
-            RomanNumber number = new RomanNumber(2);
-            RomanNumber number2 = new RomanNumber(3);
+            RomanNumber number = new RomanNumber(21);
+            RomanNumber number2 = new RomanNumber(20);
 
             Array myArr = Array.CreateInstance(typeof(RomanNumber), 10);
             int lower = myArr.GetLowerBound(0), upper = myArr.GetUpperBound(0);
@@ -37,11 +37,11 @@ class Program
              
             Console.WriteLine($"Add(n1, n2) - {RomanNumber.Add(number, number2).ToString()} ");
 
-            Console.WriteLine($"Sub(n1, n2) - {RomanNumber.Sub(number, number2).ToString()} ");
-
-            Console.WriteLine($"Mul(n1, n2) - {RomanNumber.Mul(number, number2).ToString()} ");
-          
             Console.WriteLine($"Div(n1, n2) - {RomanNumber.Div(number, number2).ToString()} ");
+
+            Console.WriteLine($"Sub(n1, n2) - {RomanNumber.Sub(number, number2).ToString()} ");
+          
+            Console.WriteLine($"Mul(n1, n2) - {RomanNumber.Mul(number, number2).ToString()} ");
 
         }
         catch (RomanNumberException e)
